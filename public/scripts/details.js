@@ -23,6 +23,12 @@ $(function()
         $("#endDate").append(str6)
         let str7 = "<td>" + objs.Meets + "</td>"
         $("#meets").append(str7)
+        let len = objs.Students.length
+        for (let i = 0; i < len;i++)
+        {
+            let str8 = "<tr><td>" + objs.Students[i].StudentName + "</td><td>" + objs.Students[i].Email + "</td></tr>"
+            $("#studentTableBody").append(str8)
+        }
     })
     let regBtn = "<a class='btn btn-primary' href=register.html?courseid=" + courseId + ">Register</a>"
     $("#contentBlock").append(regBtn)
