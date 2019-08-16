@@ -3,3 +3,25 @@
     width: 60%;
     margin-left: 20%;
 }
+
+#detailsTable
+{
+    width: 65%;
+    margin-left:17.5%;
+}
+
+#detailsTable th
+{
+    width: 25%;
+}
+
+#detailsTable tr
+{
+    line-height: 10px;
+}
+
+.reg-form
+{
+    width: 50%;
+    margin-left: 25%;
+}
