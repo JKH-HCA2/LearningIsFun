@@ -24,14 +24,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="courses.html">Course List</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="register.html">Register</a>
+            <li class="nav-item active">
+                <a class="nav-link" href="register.html">Register<span class="sr-only">(current)</span></a>
             </li>
         </ul>
     </div>
@@ -48,10 +48,10 @@
         </div>
         <!-- Different links-->
         <div class="container-fluid">
-            <form class="reg-form">
+            <form id="regForm" class="reg-form">
                 <div class="form-group">
                     <label for="courseId">Course ID</label>
-                    <input disabled name="email" type="email" class="form-control" id="courseId">
+                    <input readonly name="courseid" type="email" class="form-control" id="courseId">
                 </div>
                 <div class="form-group">
                     <label for="emailInput">Email address</label>
@@ -61,7 +61,7 @@
                     <label for="studentName">Student Name</label>
                     <input type="text" class="form-control" name="studentname" autocomplete="off" id="studentName" placeholder="Enter Name">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button id="registration" type="button" class="btn btn-primary">Submit</button>
             </form>
         
         </div>
