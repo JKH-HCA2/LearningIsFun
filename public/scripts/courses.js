@@ -22,12 +22,27 @@ $(function()
         $.getJSON("/api/courses/bycategory/" + dropdown.val(), function(data)
         {
             objs = data;
-            let len = objs.length
+            let len = objs.length;
             for (let i = 0; i < len; i++)
             {
                 let str = "<tr><td>" + objs[i].CourseId + "</td><td>" + objs[i].Title + "</td><td>" + objs[i].Category + "</td><td><a href=details.html?courseid=" + objs[i].CourseId + ">Details</a></td></tr>"
                 $("#tableBody").append(str);
             }       
         })        
+    })
+    $("#viewAll").on("click", function()
+    {
+        $("#tableBody").empty();
+
+        $.getJSON("/api/courses", function(data)
+        {
+            objs = data;
+            let len = objs.length;
+            for (let i = 0; i < len; i++)
+            {
+                let str = "<tr><td>" + objs[i].CourseId + "</td><td>" + objs[i].Title + "</td><td>" + objs[i].Category + "</td><td><a href=details.html?courseid=" + objs[i].CourseId + ">Details</a></td></tr>"
+                $("#tableBody").append(str);
+            }
+        })
     })
 })
