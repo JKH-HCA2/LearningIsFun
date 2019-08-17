@@ -43,6 +43,6 @@ $(function()
         }
     })
     // Button is created dynamically to populate the course ID field on the registration page with data in the URL
-    let regBtn = "<a class='btn btn-primary' href=register.html?courseid=" + courseId + ">Register</a>"
+    let regBtn = "<a class='btn btn-primary' id='registerBtn' href=register.html?courseid=" + courseId + ">Register</a>"
     $("#contentBlock").append(regBtn)
 })
