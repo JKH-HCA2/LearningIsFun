@@ -38,6 +38,8 @@
 </nav>
 
 <main>
+    <!-- Banner Image -->
+    <img src="images/library-banner.jpg" alt="library banner" />
     <!-- jumbotron -->
     <div class="jumbotron">
         <h1 class="display-4 ">Learning is Fun</h1>
@@ -45,26 +47,28 @@
             about.</p>
         <hr class="my-4">
         <p>To start, click below to begin searching our catalog of classes.</p>
-        </div>
-        <!-- Different links-->
-        <div class="container-fluid">
-            <form id="regForm" class="reg-form">
-                <div class="form-group">
-                    <label for="courseId">Course ID</label>
-                    <input readonly name="courseid" type="email" class="form-control" id="courseId">
-                </div>
-                <div class="form-group">
-                    <label for="emailInput">Email address</label>
-                    <input required name="email" type="email" autocomplete="off" class="form-control" id="emailInput" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                    <label for="studentName">Student Name</label>
-                    <input required type="text" class="form-control" name="studentname" autocomplete="off" id="studentName" placeholder="Enter Name">
-                </div>
-                <button id="registration" type="button" class="btn btn-primary">Submit</button>
-            </form>
-        
-        </div>
+    </div>
+    <!-- Different links-->
+    <div class="container-fluid">
+        <form id="regForm" name="regForm" class="reg-form">
+            <div class="form-group">
+                <label for="courseId">Course ID</label>
+                <input readonly name="courseid" type="email" class="form-control" id="courseId">
+            </div>
+            <div class="form-group">
+                <label for="emailInput">Email address</label>
+                <input required name="email" type="email" autocomplete="off" class="form-control" id="emailInput"
+                    placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="studentName">Student Name</label>
+                <input required type="text" class="form-control" name="studentname" autocomplete="off" id="studentName"
+                    placeholder="Enter Name">
+            </div>
+            <button id="registration" type="button" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
 </main>
 
 <!-- Optional JavaScript -->

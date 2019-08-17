@@ -19,9 +19,51 @@
 {
     line-height: 10px;
 }
+#studentsTable
+{
+    width: 65%;
+    margin-left:17.5%;
+}
+
+#studentsTable th
+{
+    width: 25%;
+}
+
+#studentsTable tr
+{
+    line-height: 10px;
+}
+
+#courseTable
+{
+    margin-bottom: 5%;
+}
 
 .reg-form
 {
     width: 50%;
     margin-left: 25%;
 }
+
+img
+{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#registerBtn
+{
+    margin-top: 25px;
+}
+
+#regForm
+{
+    margin-bottom: 5%;
+}
+
+@media only screen and (max-width: 768px) {
+    img {
+      display: none;
+    }
+  } 
