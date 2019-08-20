@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/styles.css" />
     <title>Learning is Fun!</title>
 </head>
-<nav class="navbar navbar-expand-lg navbar-light bg-info">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="index.html">Learning is Fun</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +40,7 @@
     <div class="main-content container-fluid">
         <h1 class="display-4 text-center">Catalog Lookup</h1>
         <div id="selectorBlock">
-            <select class="custom-select" id="dropdown">
+            <select class="custom-select dropdown" id="catFilter">
                 <option disabled selected>-- Choose a Category --</option>
             </select>
             <button id="viewAll" type="button" class="btn btn-outline-success">View All</button>
@@ -51,7 +51,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md">
-                    <table id="courseTable" class="table table-bordered table-hover table-striped table-dark mt-5">
+                    <table id="courseTable" class="table table-bordered table-hover table-striped table-dark mt-4">
                         <thead id="tableHead">
 
                         </thead>
@@ -62,7 +62,54 @@
                 </div>
             </div>
         </div>
-        <div id="container-fluid pageFooter">
+        
+        <div class="row text-center">
+            <div class="container-fluid" id="pageFooter">
+                <button id="addBtn" type="button" class="btn btn-outline-primary ">Add Course</button>
+                <form id="addCourse" class="border border-info rounded-lg mt-4">
+                    <select name="category" class="custom-select dropdown" id="catSelector">
+                        <option disabled selected>-- Choose a Category --</option>
+                    </select>
+                    <div class="row mt-1">
+                        <div class="col text-left">
+                            <label for="courseIdInput">Course ID:</label>
+                            <input name="courseid" type="text" class="form-control" id="courseIdInput" placeholder="ENG12345" />
+                        </div>
+                        <div class="col text-left">
+                            <label for="courseTitleInput">Course Title:</label>
+                            <input type="text" name="title" class="form-control" id="courseTitleInput" placeholder="English 101" />
+                        </div>
+                    </div>
+                    <div class="form-group text-left mt-1">
+                        <label for="locationInput">Course Location:</label>
+                        <input type="text" name="location" class="form-control" id="locationInput" placeholder="Bldg A" />
+                    </div>
+                    <div class="row">
+                        <div class="col text-left">
+                            <label for="startDateInput">Start Date:</label>
+                            <input type="text" name="startdate" class="form-control" id="startDateInput" placeholder="mm/dd/yyyy" />
+                        </div>
+                        <div class="col text-left">
+                            <label for="endDateInput">End Date:</label>
+                            <input type="text" name="enddate" class="form-control" id="endDateInput" placeholder="mm/dd/yyyy" />
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col text-left">
+                            <label for="meetsInputField">Meets on:</label>
+                            <input type="text" name="meets" class="form-control" id="meetsInputField" placeholder="Tu from 6:30 PM to 8:30 PM" />
+                        </div>
+                        <div class="col text-left">
+                            <label for="feeInputField">Registration Fee:</label>
+                            <input type="text" name="fee" class="form-control" id="feeInputField" placeholder="$ 70" />
+                        </div>
+                    </div>
+                    <div class="text-left">
+                        <button id="submitCourseBtn" type="button" class="btn btn-outline-primary mt-3">Submit Course</button>
+                        <button id="cancelCourseBtn" type="button" class="btn btn-outline-danger mt-3">Cancel</button>        
+                    </div>
+                </form>
+            </div>
 
         </div>
     </div>

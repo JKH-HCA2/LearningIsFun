@@ -32,19 +32,41 @@ $(function()
 */
 function sendData()
 {
-    // var stores the url params in a variable
-    let urlParams = new URLSearchParams(location.search);
-    // courseid is parsed from the url and stored in a variable
-    let courseId = urlParams.get("courseid");
-
-    // Data from the registration form is posted to the server
-    $.post("/api/register", $("#regForm").serialize(),
-    function(data)
+    let validCheck = formValidation();
+    if (validCheck == false)
     {
-        // after the function runs the user is directed back to the home page
-        console.log('success');
-        courseId = urlParams.get("courseid")
-        window.location.href = "details.html?courseid=" + courseId
-    })
-    return false;
+        return;
+    }
+    else
+    {
+        // var stores the url params in a variable
+        let urlParams = new URLSearchParams(location.search);
+        // courseid is parsed from the url and stored in a variable
+        let courseId = urlParams.get("courseid");
+
+        // Data from the registration form is posted to the server
+        $.post("/api/register", $("#regForm").serialize(),
+        function(data)
+        {
+            // after the function runs the user is directed back to the home page
+            console.log('success');
+            courseId = urlParams.get("courseid")
+            window.location.href = "details.html?courseid=" + courseId
+        })
+        return false;
+    }
+}
+
+function formValidation()
+{
+    if (/^([a-z0-9,!#\$%&'\*\+/=\?\^_`\{\|}~-]+(\.[a-z0-9,!#\$%&'\*\+/=\?\^_`\{\|}~-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.([a-z]{2,})){1}(;[a-z0-9,!#\$%&'\*\+/=\?\^_`\{\|}~-]+(\.[a-z0-9,!#\$%&'\*\+/=\?\^_`\{\|}~-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.([a-z]{2,}))*$/.test($("#emailInput").val()) == false)
+    {
+        alert("Please enter a valid email")
+        return false;
+    }
+    else if (/^([a-zA-Z]+[\'\,\.\-]?[a-zA-Z ]*)+[ ]([a-zA-Z]+[\'\,\.\-]?[a-zA-Z ]+)+$/.test($("#studentName").val()) == false)
+    {
+        alert("Please enter a valid name")
+        return false;
+    }
 }

@@ -1,4 +1,4 @@
-#dropdown
+#catFilter
 {
     width: 60%;
     margin-left: 20%;
@@ -42,7 +42,7 @@
 
 #courseTable
 {
-    margin-bottom: 5%;
+    margin-bottom: 3%;
 }
 
 .reg-form
@@ -69,7 +69,9 @@ img
 
 #regForm
 {
+    background-color: aliceblue;
     margin-bottom: 5%;
+    padding: 2%;
 }
 
 @media only screen and (max-width: 768px) {
@@ -81,5 +83,24 @@ img
 
 body
 {
-    background-color: lightgrey;    
+    background-color: azure;    
 }
+
+#addCourse
+{
+    background-color: aliceblue;
+    width: 60%;
+    margin-left: 20%;
+}
+
+#addCourse
+{
+    padding: 4%;
+    display: none;
+}
+/*
+#meetsInputField
+{
+    display:none;
+}
+*/

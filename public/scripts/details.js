@@ -33,6 +33,8 @@ $(function()
         $("#startDate").append(str)
         str = "<td>" + objs.EndDate + "</td>"
         $("#endDate").append(str)
+        str = "<td>$ " + objs.Fee + "</td>"
+        $("#fee").append(str)
         str = "<td>" + objs.Meets + "</td>"
         $("#meets").append(str)
         // For loop statement runs through the students array and prints them to the student list table (if necessary)

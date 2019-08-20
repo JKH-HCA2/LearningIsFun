@@ -10,7 +10,7 @@
 $(function()
 {
     // Connects HTML Dropdown to a JavaScript variable
-    let dropdown = $("#dropdown");
+    let dropdown = $(".dropdown");
     let cats;
     let objs;
 
@@ -22,12 +22,13 @@ $(function()
         // The statement loops through the categories.json file and programmatically appends HTML to the dropdown
         for (let i = 0; i < cats.length; i++)
         {
-            dropdown.append("<option value='" + cats[i].Value + "'>"+ cats[i].Category + "</option>")
+            $("#catFilter").append("<option value='" + cats[i].Value + "'>"+ cats[i].Category + "</option>")
+            $("#catSelector").append("<option value='" + cats[i].Category + "'>"+ cats[i].Category + "</option>")
         };
     })    
 
     // Function runs when the dropdown menu selection changes
-    $("#dropdown").on("change", function()
+    $("#catFilter").on("change", function()
     {
         // Clears the table whenever the function is ran to ready it for new data
         $("#tableBody").empty();
@@ -79,6 +80,16 @@ $(function()
             }
         })
     })
+    $("#addBtn").on("click", function()
+    {
+        $("#addCourse").css("display", "block")
+    })
+    $("#cancelCourseBtn").on("click", function()
+    {
+        $("#addCourse").css("display", "none")
+    })
+
+    $("#submitCourseBtn").on("click", sendData);
 })
 
 function getTableHead()
@@ -87,3 +98,18 @@ function getTableHead()
     let str = "<tr><th>Course ID:</th><th>Course Name</th><th>Category:</th><th>Details</th></tr>"
     $("#tableHead").append(str)
 }
+
+function sendData()
+{
+    // Data from the add course form is posted to the server
+    $.post("/api/courses", $("#addCourse").serialize(),
+    function(data)
+    {
+        // after the function runs the user is directed to the class details page
+        console.log('success');
+        let courseId = $("#courseIdInput").val()
+        window.location.href = "details.html?courseid=" + courseId
+    })
+    return false;
+}
+

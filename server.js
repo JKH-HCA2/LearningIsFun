@@ -227,7 +227,7 @@ app.get('/register.html', function (req, res) {
 
 
 
-/* THIS CODE ALLOWS REQUESTS FOR THE PAGES THROUGH */
+/* THIS CODE ALLOWS REQUESTS FOR THE API THROUGH */
 
 
 
