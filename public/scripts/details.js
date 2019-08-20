@@ -19,30 +19,31 @@ $(function()
     $.getJSON("/api/courses/" + courseId, function(data)
     {
         objs = data
+
         // Strings are created for every type of information pulled from the json file
-        let str1 = "<td>" + objs.CourseId + "</td>"
-        $("#courseId").append(str1)
-        let str2 = "<td>" + objs.Title + "</td>"
-        $("#courseName").append(str2)
-        let str3 = "<td>" + objs.Category + "</td>"
-        $("#courseCat").append(str3)
-        let str4 = "<td>" + objs.Location + "</td>"
-        $("#location").append(str4)
-        let str5 = "<td>" + objs.StartDate + "</td>"
-        $("#startDate").append(str5)
-        let str6 = "<td>" + objs.EndDate + "</td>"
-        $("#endDate").append(str6)
-        let str7 = "<td>" + objs.Meets + "</td>"
-        $("#meets").append(str7)
+        let str = "<td>" + objs.CourseId + "</td>"
+        $("#courseId").append(str)
+        str = "<td>" + objs.Title + "</td>"
+        $("#courseName").append(str)
+        str = "<td>" + objs.Category + "</td>"
+        $("#courseCat").append(str)
+        str = "<td>" + objs.Location + "</td>"
+        $("#location").append(str)
+        str = "<td>" + objs.StartDate + "</td>"
+        $("#startDate").append(str)
+        str = "<td>" + objs.EndDate + "</td>"
+        $("#endDate").append(str)
+        str = "<td>" + objs.Meets + "</td>"
+        $("#meets").append(str)
         // For loop statement runs through the students array and prints them to the student list table (if necessary)
         let len = objs.Students.length
         for (let i = 0; i < len;i++)
         {
-            let str8 = "<tr><td>" + objs.Students[i].StudentName + "</td><td>" + objs.Students[i].Email + "</td></tr>"
-            $("#studentTableBody").append(str8)
-        }
+            str = "<tr><td>" + objs.Students[i].StudentName + "</td><td>" + objs.Students[i].Email + "</td></tr>"
+            $("#studentTableBody").append(str)
+        }            
     })
     // Button is created dynamically to populate the course ID field on the registration page with data in the URL
-    let regBtn = "<a class='btn btn-primary' id='registerBtn' href=register.html?courseid=" + courseId + ">Register</a>"
+    let regBtn = "<a class='btn btn-outline-primary' id='registerBtn' href=register.html?courseid=" + courseId + ">Register</a>"
     $("#contentBlock").append(regBtn)
 })

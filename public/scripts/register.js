@@ -18,6 +18,9 @@ $(function()
     $("#courseId").val(courseId);
     // Statement runs the sendData function when the register button is clicked
     $("#registration").on("click", sendData);
+
+    let cancelBtn = "<a class='btn btn-outline-danger' id='cancelBtn' href=details.html?courseid=" + courseId + ">Cancel</a>"
+    $("#regForm").append(cancelBtn)
 })
 /*
 *
@@ -29,13 +32,19 @@ $(function()
 */
 function sendData()
 {
+    // var stores the url params in a variable
+    let urlParams = new URLSearchParams(location.search);
+    // courseid is parsed from the url and stored in a variable
+    let courseId = urlParams.get("courseid");
+
     // Data from the registration form is posted to the server
     $.post("/api/register", $("#regForm").serialize(),
     function(data)
     {
         // after the function runs the user is directed back to the home page
         console.log('success');
-        window.location.href = 'index.html'
+        courseId = urlParams.get("courseid")
+        window.location.href = "details.html?courseid=" + courseId
     })
     return false;
 }

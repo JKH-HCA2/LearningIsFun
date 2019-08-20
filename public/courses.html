@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/styles.css" />
     <title>Learning is Fun!</title>
 </head>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
     <a class="navbar-brand" href="index.html">Learning is Fun</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,32 +35,25 @@
 <main>
     <!-- Banner Image -->
     <img src="images/library-banner.jpg" alt="library banner" />
-    <!-- jumbotron -->
-    <div class="jumbotron">
-        <h1 class="display-4 ">Catalog Lookup</h1>
-        <p class="lead">Select a category below to beginning viewing what classes are offered.</p>
-    </div>
-    <!-- Different links-->
-    <div class="container-fluid">
-        <select class="custom-select" id="dropdown">
-            <option selected>-- Choose a Category --</option>
 
-        </select>
-        <button id="viewAll" type="button" class="btn btn-outline-success">View All</button>
+    <!-- Different links-->
+    <div class="main-content container-fluid">
+        <h1 class="display-4 text-center">Catalog Lookup</h1>
+        <div id="selectorBlock">
+            <select class="custom-select" id="dropdown">
+                <option disabled selected>-- Choose a Category --</option>
+            </select>
+            <button id="viewAll" type="button" class="btn btn-outline-success">View All</button>
+        </div>
 
 
         <!-- Table to display the park information -->
         <div class="container">
             <div class="row">
                 <div class="col-md">
-                    <table id="courseTable" class="table table-bordered table-striped mt-5">
-                        <thead>
-                            <tr>
-                                <td>Course ID:</td>
-                                <td>Course Name:</td>
-                                <td>Category:</td>
-                                <td>Details:</td>
-                            </tr>
+                    <table id="courseTable" class="table table-bordered table-hover table-striped table-dark mt-5">
+                        <thead id="tableHead">
+
                         </thead>
                         <tbody id="tableBody">
 
@@ -68,6 +61,9 @@
                     </table>
                 </div>
             </div>
+        </div>
+        <div id="container-fluid pageFooter">
+
         </div>
     </div>
 </main>

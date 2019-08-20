@@ -31,6 +31,7 @@ $(function()
     {
         // Clears the table whenever the function is ran to ready it for new data
         $("#tableBody").empty();
+        getTableHead();
 
         // JSON call runs a get request coded in the server.js file. The function stores the dropdown selection
         // and returns a list of classes with a matching category.
@@ -48,7 +49,7 @@ $(function()
             // Class found
             for (let i = 0; i < len; i++)
             {
-                let str = "<tr><td>" + objs[i].CourseId + "</td><td>" + objs[i].Title + "</td><td>" + objs[i].Category + "</td><td><a href=details.html?courseid=" + objs[i].CourseId + ">Details</a></td></tr>"
+                let str = "<tr><td>" + objs[i].CourseId + "</td><td>" + objs[i].Title + "</td><td>" + objs[i].Category + "</td><td><a class='btn btn-outline-primary' href=details.html?courseid=" + objs[i].CourseId + ">Details</a></td></tr>"
                 $("#tableBody").append(str);
             }       
         })        
@@ -79,3 +80,10 @@ $(function()
         })
     })
 })
+
+function getTableHead()
+{
+    $("#tableHead").empty();
+    let str = "<tr><th>Course ID:</th><th>Course Name</th><th>Category:</th><th>Details</th></tr>"
+    $("#tableHead").append(str)
+}

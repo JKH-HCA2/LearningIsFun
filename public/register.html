@@ -16,7 +16,7 @@
     <title>Learning is Fun!</title>
 </head>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
     <a class="navbar-brand" href="index.html">Learning is Fun</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,22 +42,18 @@
     <img src="images/library-banner.jpg" alt="library banner" />
     <!-- jumbotron -->
     <div class="jumbotron">
-        <h1 class="display-4 ">Learning is Fun</h1>
-        <p class="lead">Here at learning is fun you can search our wide variety of classes for what YOU want to learn
-            about.</p>
-        <hr class="my-4">
-        <p>To start, click below to begin searching our catalog of classes.</p>
+        <h1 class="display-4 ">Register for Class</h1>
     </div>
     <!-- Different links-->
     <div class="container-fluid">
         <form id="regForm" name="regForm" class="reg-form">
             <div class="form-group">
                 <label for="courseId">Course ID</label>
-                <input readonly name="courseid" type="email" class="form-control" id="courseId">
+                <input readonly name="courseid" type="email" class="form-control" id="courseId" >
             </div>
             <div class="form-group">
                 <label for="emailInput">Email address</label>
-                <input required name="email" type="email" autocomplete="off" class="form-control" id="emailInput"
+                <input required name="email" type="email" autocomplete="off" autofocus class="form-control" id="emailInput"
                     placeholder="Enter email">
             </div>
             <div class="form-group">
@@ -65,7 +61,7 @@
                 <input required type="text" class="form-control" name="studentname" autocomplete="off" id="studentName"
                     placeholder="Enter Name">
             </div>
-            <button id="registration" type="button" class="btn btn-primary">Submit</button>
+            <button id="registration" type="button" class="btn btn-outline-primary">Submit</button>
         </form>
 
     </div>

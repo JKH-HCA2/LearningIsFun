@@ -4,6 +4,11 @@
     margin-left: 20%;
 }
 
+#selectorBlock
+{
+    margin-top: 25px;
+}
+
 #detailsTable
 {
     width: 65%;
@@ -46,6 +51,11 @@
     margin-left: 25%;
 }
 
+.main-content
+{
+    padding: 2%;
+}
+
 img
 {
     max-width: 100%;
@@ -63,7 +73,13 @@ img
 }
 
 @media only screen and (max-width: 768px) {
-    img {
+    img 
+    {
       display: none;
     }
-  } 
+  }
+
+body
+{
+    background-color: lightgrey;    
+}
