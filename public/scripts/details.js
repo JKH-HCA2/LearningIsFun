@@ -39,13 +39,24 @@ $(function()
         $("#meets").append(str)
         // For loop statement runs through the students array and prints them to the student list table (if necessary)
         let len = objs.Students.length
-        for (let i = 0; i < len;i++)
+        if (len != 0)
         {
-            str = "<tr><td>" + objs.Students[i].StudentName + "</td><td>" + objs.Students[i].Email + "</td></tr>"
-            $("#studentTableBody").append(str)
+            for (let i = 0; i < len;i++)
+            {
+                str = "<tr><td>" + objs.Students[i].StudentName + "</td><td>" + objs.Students[i].Email + "</td></tr>"
+                $("#studentTableBody").append(str)
+            }
+        }
+        else
+        {
+            $("#studentsTable").css("display", "none")
         }            
     })
     // Button is created dynamically to populate the course ID field on the registration page with data in the URL
-    let regBtn = "<a class='btn btn-outline-primary' id='registerBtn' href=register.html?courseid=" + courseId + ">Register</a>"
-    $("#contentBlock").append(regBtn)
+    let regBtn = "<a class='btn btn-outline-primary mr-1' id='registerBtn' href=register.html?courseid=" + courseId + ">Register</a>"
+    $("#detailBtnGroup").append(regBtn)
+    let editBtn = "<a class='btn btn-outline-warning mr-1 ml-1 mt-4' id='editBtn' href=edit.html?courseid=" + courseId + ">Edit</a>"
+    $("#detailBtnGroup").append(editBtn)
+    let cancelBtn = "<a class='btn btn-outline-danger ml-1 mt-4' id='cancelBtn' href=courses.html>Cancel</a>"
+    $("#detailBtnGroup").append(cancelBtn)
 })

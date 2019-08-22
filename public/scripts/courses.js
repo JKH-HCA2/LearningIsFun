@@ -50,7 +50,7 @@ $(function()
             // Class found
             for (let i = 0; i < len; i++)
             {
-                let str = "<tr><td>" + objs[i].CourseId + "</td><td>" + objs[i].Title + "</td><td>" + objs[i].Category + "</td><td><a class='btn btn-outline-primary' href=details.html?courseid=" + objs[i].CourseId + ">Details</a></td></tr>"
+                let str = "<tr><td>" + objs[i].CourseId + "</td><td>" + objs[i].Title + "</td><td>" + objs[i].Category + "</td><td class='text-center'><a class='btn btn-outline-primary' href=details.html?courseid=" + objs[i].CourseId + ">Details</a></td><td class='text-center'><a class='btn btn-outline-warning' href=edit.html?courseid=" + objs[i].CourseId + ">Edit</a></td></tr>"
                 $("#tableBody").append(str);
             }       
         })        
@@ -60,6 +60,7 @@ $(function()
     {
         // Clears all prior data from the table
         $("#tableBody").empty();
+        getTableHead();
 
         // Json call runs a get request coded in the server.js file. The function pulls all the classes from the rest
         // API and points it to a JS variable
@@ -75,7 +76,7 @@ $(function()
             // For loop statement prints all the classes from the JSON array onto the page
             for (let i = 0; i < len; i++)
             {
-                let str = "<tr><td>" + objs[i].CourseId + "</td><td>" + objs[i].Title + "</td><td>" + objs[i].Category + "</td><td><a href=details.html?courseid=" + objs[i].CourseId + ">Details</a></td></tr>"
+                let str = "<tr><td>" + objs[i].CourseId + "</td><td>" + objs[i].Title + "</td><td>" + objs[i].Category + "</td><td class='text-center'><a class='btn btn-outline-primary' href=details.html?courseid=" + objs[i].CourseId + ">Details</a></td><td class='text-center'><a class='btn btn-outline-warning' href=edit.html?courseid=" + objs[i].CourseId + ">Edit</a></td></tr>"
                 $("#tableBody").append(str);
             }
         })
@@ -89,13 +90,52 @@ $(function()
         $("#addCourse").css("display", "none")
     })
 
+    // Validation Block
+    $(".validator").on("blur", function()
+    {
+        $.trim($(this).val())
+        let param = $(this).attr("name");
+        let obj = $(this)
+        blurValidation(param, obj)       
+    })
+
+    $(".date-validation").on("blur", function()
+    {
+        let datePattern = /^\d{1,2}\/\d{1,2}\/\d{2,4}$/
+        $.trim($(this).val());
+        let date = $(this).val();
+        let param = $(this).attr("name");
+        let obj = $(this);
+        blurValidation(param, obj);
+        if (datePattern.test(date) == false)
+        {
+            obj.css("border-color", "red");
+            obj.css("background-color", "MistyRose");
+            $("#errorDiv").css("display", "block");
+            if ($("." + param + "1").length == 0)
+            {
+                $("#errorDiv").append("<p class='" + param + "1'>" + param + " must be in MM/DD/YYYY format</p>");
+            }
+        }
+        else
+        {
+            obj.css("border-color", "lightgrey");
+            obj.css("background-color", "white");
+            $("." + param + "1").remove();
+            if ($("#errorDiv").is(":empty"))
+            {
+                $("#errorDiv").css("display", "none")
+            }
+        }
+    })
+
     $("#submitCourseBtn").on("click", sendData);
 })
 
 function getTableHead()
 {
     $("#tableHead").empty();
-    let str = "<tr><th>Course ID:</th><th>Course Name</th><th>Category:</th><th>Details</th></tr>"
+    let str = "<tr><th>Course ID</th><th>Course Name</th><th>Category</th><th>Details</th><th>Edit Course</th></tr>"
     $("#tableHead").append(str)
 }
 
@@ -111,5 +151,29 @@ function sendData()
         window.location.href = "details.html?courseid=" + courseId
     })
     return false;
+}
+
+function blurValidation(param, obj)
+{
+    if (obj.val() == "")
+        {            
+            obj.css("border-color", "red");
+            obj.css("background-color", "mistyrose");
+            $("#errorDiv").css("display", "block");
+            if ($("." + param).length == 0)
+            {
+                $("#errorDiv").append("<p class='" + param + "'>" + param + " is required</p>");
+            }
+        }
+        else
+        {
+            obj.css("border-color", "lightgrey");
+            obj.css("background-color", "white");
+            $("." + param).remove();
+            if ($("#errorDiv").is(":empty"))
+            {
+                $("#errorDiv").css("display", "none")
+            }
+        }
 }
 

@@ -95,12 +95,22 @@ body
 
 #addCourse
 {
-    padding: 4%;
+    padding: 3%;
     display: none;
 }
-/*
-#meetsInputField
+
+#editCourse
 {
-    display:none;
+    padding: 3%;
+    background-color: aliceblue;
 }
-*/
+
+#errorDiv
+{
+    display: none;
+    background-color: mistyrose;
+    color: red;
+    padding: 2%;
+    width: 50%;
+    margin-left: 25%;
+}

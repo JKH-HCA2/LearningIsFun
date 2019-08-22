@@ -67,47 +67,50 @@
             <div class="container-fluid" id="pageFooter">
                 <button id="addBtn" type="button" class="btn btn-outline-primary ">Add Course</button>
                 <form id="addCourse" class="border border-info rounded-lg mt-4">
-                    <select name="category" class="custom-select dropdown" id="catSelector">
-                        <option disabled selected>-- Choose a Category --</option>
-                    </select>
+                    <div class="text-left">
+                        <label for="catSelector">Category</label>
+                        <select name="category" class="custom-select dropdown" id="catSelector">                            
+                        </select>
+                    </div>
                     <div class="row mt-1">
                         <div class="col text-left">
-                            <label for="courseIdInput">Course ID:</label>
-                            <input name="courseid" type="text" class="form-control" id="courseIdInput" placeholder="ENG12345" />
+                            <label for="courseIdInput">Course ID</label>
+                            <input name="courseid" type="text" class="validator form-control" id="courseIdInput" placeholder="ENG12345" />
                         </div>
                         <div class="col text-left">
-                            <label for="courseTitleInput">Course Title:</label>
-                            <input type="text" name="title" class="form-control" id="courseTitleInput" placeholder="English 101" />
+                            <label for="courseTitleInput">Course Title</label>
+                            <input type="text" name="title" class="validator form-control" id="courseTitleInput" placeholder="English 101" />
                         </div>
                     </div>
                     <div class="form-group text-left mt-1">
-                        <label for="locationInput">Course Location:</label>
-                        <input type="text" name="location" class="form-control" id="locationInput" placeholder="Bldg A" />
+                        <label for="locationInput">Course Location</label>
+                        <input type="text" name="location" class="validator form-control" id="locationInput" placeholder="Bldg A" />
                     </div>
                     <div class="row">
                         <div class="col text-left">
-                            <label for="startDateInput">Start Date:</label>
-                            <input type="text" name="startdate" class="form-control" id="startDateInput" placeholder="mm/dd/yyyy" />
+                            <label for="startDateInput">Start Date</label>
+                            <input type="text" name="startdate" class="date-validation form-control" id="startDateInput" placeholder="mm/dd/yyyy" />
                         </div>
                         <div class="col text-left">
-                            <label for="endDateInput">End Date:</label>
-                            <input type="text" name="enddate" class="form-control" id="endDateInput" placeholder="mm/dd/yyyy" />
+                            <label for="endDateInput">End Date</label>
+                            <input type="text" name="enddate" class="date-validation form-control" id="endDateInput" placeholder="mm/dd/yyyy" />
                         </div>
                     </div>
                     <div class="row mt-2">
                         <div class="col text-left">
-                            <label for="meetsInputField">Meets on:</label>
-                            <input type="text" name="meets" class="form-control" id="meetsInputField" placeholder="Tu from 6:30 PM to 8:30 PM" />
+                            <label for="meetsInputField">Meets on</label>
+                            <input type="text" name="meets" class="validator form-control" id="meetsInputField" placeholder="Tu from 6:30 PM to 8:30 PM" />
                         </div>
                         <div class="col text-left">
-                            <label for="feeInputField">Registration Fee:</label>
-                            <input type="text" name="fee" class="form-control" id="feeInputField" placeholder="$ 70" />
+                            <label for="feeInputField">Registration Fee</label>
+                            <input type="text" name="fee" class="validator form-control" id="feeInputField" placeholder="$ 70" />
                         </div>
                     </div>
                     <div class="text-left">
                         <button id="submitCourseBtn" type="button" class="btn btn-outline-primary mt-3">Submit Course</button>
                         <button id="cancelCourseBtn" type="button" class="btn btn-outline-danger mt-3">Cancel</button>        
                     </div>
+                    <div id="errorDiv" class="text-center border border-danger rounded-lg mt-3"></div>
                 </form>
             </div>
 
